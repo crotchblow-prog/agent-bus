@@ -71,6 +71,7 @@ Neither agent can call the other directly. They communicate **only** by committi
 
 ```
 agent-bus/
+├── .gitignore               # git ignore rules
 ├── README.md                # this file
 ├── STATUS.md                # one-line status board, both agents update it
 ├── msgs/                    # unprocessed inbox
