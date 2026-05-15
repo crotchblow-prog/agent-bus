@@ -288,25 +288,45 @@ Append to `~/.zshrc` on each Mac:
 ```bash
 # === agent-bus delegation ===
 delegate() {
+  local project=""
+  local sub_type=""
+
+  # Optional flags (must come before recipient)
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --project)  project="$2";  shift 2 ;;
+      --sub-type) sub_type="$2"; shift 2 ;;
+      --)         shift; break ;;
+      --*)        echo "unknown flag: $1" >&2; return 1 ;;
+      *)          break ;;
+    esac
+  done
+
   if [ "$#" -lt 2 ]; then
-    echo "usage: delegate <mira|aria|all> <task description>" >&2
+    echo "usage: delegate [--project SLUG] [--sub-type VERB] <mira|aria|all> <task description>" >&2
     return 1
   fi
+
   local to="$1"; shift
   local body="$*"
   case "$to" in mira|aria|all) ;; *) echo "recipient must be mira, aria, or all" >&2; return 1 ;; esac
+
   local id
   id=$(date -u +%Y-%m-%dT%H-%M-%S)
   local file="$HOME/agent-bus/msgs/${id}-user-to-${to}.md"
-  cat > "$file" <<EOF
----
-id: $id
-from: user
-to: $to
-type: task
----
-$body
-EOF
+
+  {
+    echo "---"
+    echo "id: $id"
+    echo "from: user"
+    echo "to: $to"
+    echo "type: task"
+    [ -n "$project" ]  && echo "project: $project"
+    [ -n "$sub_type" ] && echo "sub_type: $sub_type"
+    echo "---"
+    echo "$body"
+  } > "$file"
+
   git -C "$HOME/agent-bus" pull --rebase -q && \
   git -C "$HOME/agent-bus" add "$file" && \
   git -C "$HOME/agent-bus" commit -q -m "user→${to}: ${body:0:60}" && \
@@ -316,6 +336,11 @@ EOF
 ```
 
 Then `source ~/.zshrc` (or open a new terminal).
+
+After this PR is merged, **update `~/.zshrc` on both Macs** with the new
+function definition and source the file (or open a new terminal). The old
+function will still work for non-project tasks but won't write
+`project:`/`sub_type:` frontmatter even if you pass the flags.
 
 ### 6. Permissions allowlist
 
@@ -391,6 +416,11 @@ delegate aria "research charting libs"   # drop a task from any terminal
 3. **Heads-down on EA work, RFP, whatever.** When you think of something to delegate, just type:
    ```
    delegate aria "draft a one-pager landing for Beach & Wne, propose 2 hero copy options"
+   ```
+   ```
+   # Project-scoped delegation (per PR #4):
+   delegate --project forest-oasis --sub-type assign_issue aria "Issue #12 (Drizzle setup). M1. Context: docs/adr/002-data-model.md §3.1."
+   delegate --project forest-oasis --sub-type request_clarification mira "Re #15: 50min slot or 80min for couples bookings?"
    ```
    Or from inside any Claude Code session's input box (without leaving your current work):
    ```
