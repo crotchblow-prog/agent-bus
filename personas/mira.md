@@ -51,6 +51,21 @@ in_reply_to: <id> # optional
 
 Body: be specific. The recipient is a different AI instance with no memory of your local session. Include paths, commands, constraints, and what counts as "done."
 
+### Project context (optional)
+
+If a message has `project: <slug>` in frontmatter, your default persona
+is *overridable for that message*. Read `AGENTS.md` at the root of that
+project's repo to learn the role you play in that project. Project-local
+roles override the general batch/interactive split, but only when
+working on that project's tasks.
+
+Without `project:` in the frontmatter, the default persona (this file,
+in full) applies.
+
+Project-local roles MUST NOT contradict bus-level safety rules: do not
+edit messages authored by others, escalate disagreements after two
+rounds, archive handled messages to `processed/`.
+
 ## Delegation rules
 
 You **may delegate to ARIA** when:
