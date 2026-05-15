@@ -127,6 +127,51 @@ Free-form message body. Markdown is fine. Be specific.
 | `ack` | Acknowledged / accepted / starting work | No reply needed. |
 | `stop` | Thread finished | No reply needed. Closes the thread. |
 
+### Project-scoped sub-protocols (optional)
+
+A message can include two optional frontmatter fields, `project` and
+`sub_type`:
+
+```
+---
+id: 2026-04-25T14-22-01
+from: aria
+to: mira
+type: task             # one of the 6 generic types — required
+project: forest-oasis  # optional — names the project context
+sub_type: assign_issue # optional — project-defined semantics
+in_reply_to: <id>
+---
+```
+
+If `project:` is present, the receiving agent should read `AGENTS.md` at
+the root of that project's repo (if it exists) before responding.
+AGENTS.md defines, for that project specifically:
+
+- **Role overrides** — e.g., Aria plays "PM" (not the default
+  interactive/laptop persona) for this project's tasks
+- **Sub_type vocabulary** — what each sub_type means and what response
+  shape is expected
+- **Project conventions** — branch naming, test commands, where
+  artifacts go
+
+The 6 generic types still apply at the bus level. `sub_type` is
+project-specific richness layered on top, not a replacement. A generic
+loop that doesn't recognize a particular sub_type just treats the
+message as its parent `type` (a `task` with `sub_type: assign_issue` is
+still a `task`).
+
+**Constraints:**
+
+- AGENTS.md MAY redefine project roles but MUST NOT contradict
+  bus-level safety rules (don't edit others' messages, escalate after
+  two rounds, archive to `processed/` after handling)
+- Without `project:` in frontmatter, the default persona
+  (batch/interactive split per `~/.claude/CLAUDE.md`) applies
+- `sub_type` is purely advisory — agents that don't recognize one
+  fall back to `type`
+- AGENTS.md is project-repo-local; agent-bus does not store it
+
 ### Protocol rules
 
 1. **Never edit a message you didn't author.** Reply by creating a new file.
@@ -570,7 +615,7 @@ These were discussed but not implemented:
 
 - **Bus monitor dashboard.** ARIA's first real task — a static HTML page deployed at `https://crotchblow-prog.github.io/agent-bus/` showing STATUS + recent messages, mobile-first. Direction A approved (`tail -f` style monospace). Awaiting build.
 
-- **Per-repo `AGENTS.md` convention.** When delegating tasks targeting other repos, drop an `AGENTS.md` at the root of each so MIRA/ARIA know conventions, test commands, branch naming. Not yet adopted.
+- ~~Per-repo `AGENTS.md` convention.~~ ✓ Adopted as part of "Project-scoped sub-protocols" above. First reference implementation lives in the Forest Oasis project repo (link TBD once that repo exists). Template at `examples/AGENTS.md.template`.
 
 - **Headless / SDK loop.** Replace `/loop` with a small Node/Python daemon using the Claude Agent SDK. No Terminal window required. Most robust path; not built.
 

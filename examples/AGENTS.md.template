@@ -1,0 +1,49 @@
+# AGENTS.md — <project name>
+
+> Project-scoped persona overrides + sub_type vocabulary for agent-bus.
+> Read by Mira and Aria when handling messages with
+> `project: <this-project-slug>` in frontmatter. Does NOT replace
+> ~/.claude/CLAUDE.md; augments it for this project's tasks only.
+
+## Project slug
+
+`<project-slug>` — must match the value used in bus message frontmatter.
+
+## Role overrides for this project
+
+| Agent | Default persona (from ~/.claude/CLAUDE.md) | This project's role |
+|---|---|---|
+| Mira | batch / headless / backend / always-on | (define here) |
+| Aria | interactive / UI / docs / laptop | (define here) |
+
+Document WHY each role makes sense for this project. Roles MUST NOT
+contradict bus-level safety rules.
+
+## Sub_type vocabulary
+
+Sub_types are advisory project-specific labels. Each row maps a sub_type
+to its parent generic type and describes the expected response shape.
+
+| sub_type | parent type | sender | recipient | body shape | expected response |
+|---|---|---|---|---|---|
+| assign_issue (example) | task | aria | mira | "Issue #N. Milestone Mn. Context: <docs>. Branch: <name>." | ack when starting; discussion if blocked |
+| pr_opened (example) | discussion | mira | aria | "PR #N opened: <url>. Tests added: X. Follow-ups: Y." | ack after scope review; or task asking for changes |
+| ... | ... | ... | ... | ... | ... |
+
+## Project conventions
+
+- **Repo URL:** <link>
+- **Branch naming:** `feat/<slug>` / `fix/<slug>` / `chore/<slug>`
+- **Test commands:** `npm run test`, `npm run lint`, etc.
+- **Where artifacts land:** PRs to <branch>, deploys to <env>
+- **Where status lives:** <e.g., docs/STATUS.md updated every 12h>
+
+## Escalation specifics
+
+- (Any project-specific escalation triggers beyond the bus-level "two
+  rounds then escalate" rule)
+
+## Out of scope for this project
+
+- (List anything an agent might assume is in scope but isn't — prevents
+  drift)
