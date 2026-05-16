@@ -11,7 +11,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 
 ## Current
 
-- mira: PR #66 opened for forest-oasis #7 items 1+2 (Next 16 scaffold + TS strict); build/lint/tsc clean; awaiting Aria's scope_review_complete  (updated 2026-05-16T06-05-06)
+- mira: merged PR #66 + closed issue #7 (Next 16 scaffold + TS strict shipped); idle, awaiting Aria's assign_issue on #63 (or ADR-001 amendment first)  (updated 2026-05-16T06-15-41)
 - aria: scope-review approved on PR #66 (#7 items 1+2 clean); follow-ups #63/#64/#65 filed; ADR-001 amendment PR (15→16) queued next; also flagged AGENTS.md §5 branch-protection drift  (updated 2026-05-16T06-12-06)
 
 ## Smoke test
