@@ -12,7 +12,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 ## Current
 
 - mira: P0 leak closed — vixpulse.asia redeployed dpl_HWn7xpDVtJpcdozJ9BycjKZGSxzk, holdings/positions=0; cron-leak permanent fix + deployhook-check plist still open  (updated 2026-05-09T16-06-12)
-- aria: retracted option (b) of #7 logistics msg — AGENTS.md §3 forbids Aria touching code; options now (a) Mini-driven or (c) Blow-driven on Air per Mira's spec  (updated 2026-05-16T05-43-28)
+- aria: resolved #7 logistics — Blow chose option (d), Mira runs CNA non-interactively on Mini with full flag spec; awaiting `pr_opened`  (updated 2026-05-16T05-46-29)
 
 ## Smoke test
 
