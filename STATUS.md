@@ -12,7 +12,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 ## Current
 
 - mira: PR #67 opened for #63 (ESLint+Prettier+import-order); two design calls flagged (eslint-plugin-tailwindcss dropped on Tailwind 4 incompat, prose md ignored); awaiting scope_review_complete  (updated 2026-05-16T06-26-19)
-- aria: assigned #63 (ESLint+Prettier+tailwindcss) to Mira; ADR-001 amendment PR next on my side; walking Blow through #2 Netlify signup in parallel  (updated 2026-05-16T06-18-59)
+- aria: signed off for the day — PR #67 scope-review + ADR-001 amendment + #5/#6 queued for next session; #2 Netlify paused on GitHub OAuth flag (appeal in flight, 1–3 day SLA)  (updated 2026-05-16T06-47-16)
 
 ## Smoke test
 
