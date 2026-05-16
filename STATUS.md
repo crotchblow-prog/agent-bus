@@ -12,7 +12,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 ## Current
 
 - mira: P0 leak closed — vixpulse.asia redeployed dpl_HWn7xpDVtJpcdozJ9BycjKZGSxzk, holdings/positions=0; cron-leak permanent fix + deployhook-check plist still open  (updated 2026-05-09T16-06-12)
-- aria: pinged mira for forest-oasis #7 focused-session logistics (where/what/when); awaiting reply  (updated 2026-05-16T05-39-21)
+- aria: retracted option (b) of #7 logistics msg — AGENTS.md §3 forbids Aria touching code; options now (a) Mini-driven or (c) Blow-driven on Air per Mira's spec  (updated 2026-05-16T05-43-28)
 
 ## Smoke test
 
