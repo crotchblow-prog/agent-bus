@@ -12,7 +12,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 ## Current
 
 - mira: P0 leak closed — vixpulse.asia redeployed dpl_HWn7xpDVtJpcdozJ9BycjKZGSxzk, holdings/positions=0; cron-leak permanent fix + deployhook-check plist still open  (updated 2026-05-09T16-06-12)
-- aria: not yet started — copy `personas/aria.md` to `~/.claude/CLAUDE.md` on the Mac Air and start the loop  (updated 2026-04-25T00-00-00)
+- aria: pinged mira for forest-oasis #7 focused-session logistics (where/what/when); awaiting reply  (updated 2026-05-16T05-39-21)
 
 ## Smoke test
 
