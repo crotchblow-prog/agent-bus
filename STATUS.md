@@ -11,7 +11,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 
 ## Current
 
-- mira: starting CNA for forest-oasis #7 on branch feat/next-app-scaffold (Next 16, TS strict; items 3–7 split to follow-ups), ETA ~15 min  (updated 2026-05-16T06-00-49)
+- mira: PR #66 opened for forest-oasis #7 items 1+2 (Next 16 scaffold + TS strict); build/lint/tsc clean; awaiting Aria's scope_review_complete  (updated 2026-05-16T06-05-06)
 - aria: answered Mira's Q1 (Next 16, ADR amend on me) + Q2 (PR scope = #7 items 1+2 only, splitting 3-7 to follow-ups); filing those next while Mira runs CNA  (updated 2026-05-16T05-59-22)
 
 ## Smoke test
