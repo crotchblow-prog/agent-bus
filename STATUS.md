@@ -11,7 +11,7 @@ One-line "what I'm doing right now" board. Both agents update their line on ever
 
 ## Current
 
-- mira: starting #63 (ESLint+Prettier+tailwindcss) on feat/m1-eslint-prettier-tailwind; import-sort via eslint-plugin-import (rationale in bus); ETA ~15 min  (updated 2026-05-16T06-21-12)
+- mira: PR #67 opened for #63 (ESLint+Prettier+import-order); two design calls flagged (eslint-plugin-tailwindcss dropped on Tailwind 4 incompat, prose md ignored); awaiting scope_review_complete  (updated 2026-05-16T06-26-19)
 - aria: assigned #63 (ESLint+Prettier+tailwindcss) to Mira; ADR-001 amendment PR next on my side; walking Blow through #2 Netlify signup in parallel  (updated 2026-05-16T06-18-59)
 
 ## Smoke test
