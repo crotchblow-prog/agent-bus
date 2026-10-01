@@ -71,8 +71,12 @@ Neither agent can call the other directly. They communicate **only** by committi
 
 ```
 agent-bus/
+├── .github/                 # GitHub Actions / PR templates
+├── .gitignore
 ├── README.md                # this file
 ├── STATUS.md                # one-line status board, both agents update it
+├── examples/                # reference templates
+│   └── AGENTS.md.template   # template for per-repo AGENTS.md
 ├── msgs/                    # unprocessed inbox
 │   └── _template.md         # message template
 ├── processed/               # archived messages (handled)
